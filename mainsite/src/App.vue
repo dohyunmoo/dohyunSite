@@ -1,7 +1,7 @@
 <template>
     <header>
         <nav>
-            <Transition appear @before-enter="beforeEnter" @enter="Enter">
+            <Transition appear @before-enter="beforeEnter" @enter="enter">
                 <div class="feeb">
                         <img src="./assets/feebas.png" alt="feebas">
                     <div class="contact-email">
@@ -9,7 +9,7 @@
                     </div>
                 </div>
             </Transition>
-            <Transition appear @before-enter="beforeEnter" @enter="Enter">
+            <Transition appear @before-enter="beforeEnter" @enter="enter">
                 <div class="icon">
                     <i @click="toggleNav" class="far fa-bars" :class="{'icon-active': toggle}"></i>
                 </div>
@@ -27,11 +27,9 @@
             </Transition>
         </nav>
     </header>
-    <Transition appear @before-enter="beforeEnter" @enter="Enter">
-        <h1>
-            <a name="home"><Title></Title></a>
-        </h1>
-    </Transition>
+    <h1>
+        <a name="home"><Title></Title></a>
+    </h1>
     <h1>
         <a name="about"><Specs></Specs></a>
     </h1>
@@ -65,14 +63,14 @@ export default {
             element.style.opacity = 0
         }
 
-        const Enter = (element) => {
+        const enter = (element) => {
             gsap.to(element, {
                 duration: 1,
                 y: 0,
                 opacity: 1,
             })
         }
-        return { beforeEnter, Enter }
+        return { beforeEnter, enter }
     },
     name: 'App',
     data() {

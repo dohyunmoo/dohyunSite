@@ -4,25 +4,46 @@
             <h4>About Me</h4>
             <p>Hi my name is Dohyun Moon. I go to University of waterloo aifjh awiuprgfiw qvebhfbslidu fbl</p>
         </div>
-        <div class="skills">
-            <div class="content">
-                <h4>Programming Languages</h4>
-                <p>C, C++, C#, Python, HTML, CSS, Javascript, Terraform, Ansible, Powershell</p>
+        <Transition appear @before-enter="beforeEnter" @enter="enter">        
+            <div class="skills">
+                <div class="content">
+                    <h4>Programming Languages</h4>
+                    <p>C, C++, C#, Python, HTML, CSS, Javascript, Terraform, Ansible, Powershell</p>
+                </div>
+                <div class="content">
+                    <h4>Frameworks and Libraries</h4>
+                    <p>VueJS, NodeJS, Selenium, Robot Framework, Pester</p>
+                </div>
+                <div class="content">
+                    <h4>Others</h4>
+                    <p>Azure, vSphere, Jenkins, Git, Docker, Linux/Windows CLI</p>
+                </div>
             </div>
-            <div class="content">
-                <h4>Frameworks and Libraries</h4>
-                <p>VueJS, NodeJS, Selenium, Robot Framework, Pester</p>
-            </div>
-            <div class="content">
-                <h4>Others</h4>
-                <p>Azure, vSphere, Jenkins, Git, Docker, Linux/Windows CLI</p>
-            </div>
-        </div>
+        </Transition>
     </div>
 </template>
 
 <script>
+
+import gsap from 'gsap'
+
 export default {
+    setup() {
+        const beforeEnter = (element) => {
+            element.style.opacity = 0
+        }
+
+        const enter = (element) => {
+            gsap.to(element, {
+                scrollTrigger: {
+                    trigger: '.skills',
+                },
+                duration: 0.75,
+                opacity: 1,
+            })
+        }
+        return { beforeEnter, enter }
+    },
     name: 'about-me',
     props: ['']
 }

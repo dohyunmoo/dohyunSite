@@ -1,18 +1,12 @@
 <template>
-    <div class="main">
-        <div v-for="(a,i) in jobData" :key="i" :class="[a.id%2 == 1 ? 'experience-left': 'experience-right']">
-            <Transition 
-                appear
-                @before-enter="beforeEnter"
-                @enter="Enter"
-            >
-                <div>
-                    <h4>{{ a.jobTitle }} @ <span>{{ a.company }}</span></h4>
-                    <p>{{ a.content }}</p>
-                </div>
-            </Transition>
+    <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="main">
+        <div v-for="(a,i) in jobData" :key="i" :data-index="i" :class="[a.id%2 == 1 ? 'experience-left': 'experience-right']">
+            <div class="scrolled">
+                <h4>{{ a.jobTitle }} @ <span>{{ a.company }}</span></h4>
+                <p>{{ a.content }}</p>
+            </div>
         </div>
-    </div>
+    </transition-group>
 </template>
 
 <script>
@@ -27,15 +21,20 @@ export default {
             element.style.opacity = 0
         }
 
-        const Enter = (element) => {
-            console.log('akasdaksdk')
+        const enter = (element, done) => {
             gsap.to(element, {
-                duration: 1,
+                scrollTrigger: {
+                    trigger: '.scrolled',
+                    start: 'center center',
+                },
                 x: 0,
                 opacity: 1,
+                duration: 1,
+                onComplete: done,
+                delay: element.dataset.index*0.2,
             })
         }
-        return { beforeEnter, Enter }
+        return { beforeEnter, enter }
     },
     name: 'coop-experience',
     props: [''],
@@ -91,9 +90,9 @@ export default {
     margin-right: -50vh;
 }
 
-.experience-left:hover,
+/* .experience-left:hover,
 .experience-right:hover {
     background-color: #2c3e50;
     color: #fcae1e;
-}
+} */
 </style>

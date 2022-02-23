@@ -7,6 +7,8 @@
             <form>
                 <label for="name">Name</label>
                 <input type="text" id="name" name="firstname" placeholder="Your name..">
+                <label for="name">Email</label>
+                <input type="text" id="email" name="emailaddress" placeholder="Your email..">
 
                 <label for="subject">Subject</label>
                 <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
@@ -31,12 +33,17 @@ export default {
 <style scoped>
 .main {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100vh;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .contact-1 {
     font-size: 48px;
+    margin-left: 20%;
+    min-width: 30%;
+    text-align: left;
 }
 
 input[type=text], select, textarea {
@@ -65,6 +72,8 @@ input[type=submit]:hover {
 
 .container {
     border-radius: 5px;
-    padding: 20px;
+    margin-right: 15%;
+    width: 35%;
+    align-items: center;
 }
 </style>
