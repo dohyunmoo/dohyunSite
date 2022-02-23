@@ -15,12 +15,13 @@
     />
 </head>
 <body>
-<script src="https://unpkg.com/vue-pdf-embed"></script>
-    <noscript>
-        <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-        <div id="app"></div>
-        <!-- built files will be auto injected -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+<noscript>
+    <strong>:( No Script Me No Work...</strong>
+</noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
 </body>
 <style>
 * {
@@ -42,14 +43,18 @@ body {
 }
 
 #app {
-    animation: init 0.5s;
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-@keyframes init {
+/* @keyframes init {
     from {
         opacity: 0;
     }
@@ -57,7 +62,7 @@ html {
     to {
         opacity: 1;
     }
-}
+} */
 
 a:link { text-decoration: none; }
 a:visited { text-decoration: none; color: white;}

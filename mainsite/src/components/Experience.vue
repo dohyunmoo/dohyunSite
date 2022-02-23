@@ -1,8 +1,16 @@
 <template>
     <div class="main">
         <div v-for="(a,i) in jobData" :key="i" :class="[a.id%2 == 1 ? 'experience-left': 'experience-right']">
-            <h4>{{ a.jobTitle }} @ <span>{{ a.company }}</span></h4>
-            <p>{{ a.content }}</p>
+            <Transition 
+                appear
+                @before-enter="beforeEnter"
+                @enter="Enter"
+            >
+                <div>
+                    <h4>{{ a.jobTitle }} @ <span>{{ a.company }}</span></h4>
+                    <p>{{ a.content }}</p>
+                </div>
+            </Transition>
         </div>
     </div>
 </template>
@@ -10,15 +18,32 @@
 <script>
 
 import jobData from '../assets/jobData.js'
+import gsap from 'gsap'
 
 export default {
+    setup() {
+        const beforeEnter = (element) => {
+            element.style.transform = 'translateX(-100px)'
+            element.style.opacity = 0
+        }
+
+        const Enter = (element) => {
+            console.log('akasdaksdk')
+            gsap.to(element, {
+                duration: 1,
+                x: 0,
+                opacity: 1,
+            })
+        }
+        return { beforeEnter, Enter }
+    },
     name: 'coop-experience',
     props: [''],
     data() {
         return {
             jobData,
         }
-    }
+    },
 }
 </script>
 
@@ -56,7 +81,6 @@ export default {
 .experience-right span {
     background-color: #2c3e50;
     color: #fcae1e;
-    
 }
 
 .experience-left {

@@ -1,15 +1,19 @@
 <template>
     <header>
         <nav>
-            <div class="feeb">
-                <img src="./assets/feebas.png" alt="feebas">
-                <div class="contact-email">
-                    <a href="mailto:d6moon@uwaterloo.ca">d6moon@uwaterloo.ca</a>
+            <Transition appear @before-enter="beforeEnter" @enter="Enter">
+                <div class="feeb">
+                        <img src="./assets/feebas.png" alt="feebas">
+                    <div class="contact-email">
+                        <a href="mailto:d6moon@uwaterloo.ca">d6moon@uwaterloo.ca</a>
+                    </div>
                 </div>
-            </div>
-            <div class="icon">
-                <i @click="toggleNav" class="far fa-bars" :class="{'icon-active': toggle}"></i>
-            </div>
+            </Transition>
+            <Transition appear @before-enter="beforeEnter" @enter="Enter">
+                <div class="icon">
+                    <i @click="toggleNav" class="far fa-bars" :class="{'icon-active': toggle}"></i>
+                </div>
+            </Transition>
             <Transition name="side-nav">
                 <ul v-show="toggle" class="dropdown-nav">
                     <img src="./assets/feebas.png" alt="feebas">
@@ -23,10 +27,11 @@
             </Transition>
         </nav>
     </header>
-
-    <h1>
-        <a name="home"><Title></Title></a>
-    </h1>
+    <Transition appear @before-enter="beforeEnter" @enter="Enter">
+        <h1>
+            <a name="home"><Title></Title></a>
+        </h1>
+    </Transition>
     <h1>
         <a name="about"><Specs></Specs></a>
     </h1>
@@ -51,7 +56,24 @@ import Experience from './components/Experience.vue'
 import Projects from './components/Projects.vue'
 import Contact from './components/Contact.vue'
 
+import gsap from 'gsap'
+
 export default {
+    setup() {
+        const beforeEnter = (element) => {
+            element.style.transform = 'translateY(-100px)'
+            element.style.opacity = 0
+        }
+
+        const Enter = (element) => {
+            gsap.to(element, {
+                duration: 1,
+                y: 0,
+                opacity: 1,
+            })
+        }
+        return { beforeEnter, Enter }
+    },
     name: 'App',
     data() {
         return {
@@ -96,7 +118,6 @@ export default {
 </script>
 
 <style>
-@import './assets/styles.css';
 header {
     background-color: rgba(0,0,0,0);
     z-index: 99;
