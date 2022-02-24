@@ -1,15 +1,15 @@
 <template>
     <div class="title-1">
         <div class="title-2">
-            <p>Hi, my name is Dohyun Moon<br>
-            <Transition name="title-change">
-                <span class="titles" @mouseover="increment" v-text="titles[index]"></span>
-            </Transition>
-            </p>
+            <p>Hi, my name is Dohyun Moon</p>
+                <p class="titles">
+                <Transition name="title-change">
+                    <p v-text="titles[index]" v-if="show" class="title-content"></p>
+                </Transition>
+                </p>
             <div class="title-links">
                 <div class="major-title-links">
                     <a href="../docs/Dohyun F2021 Updated.pdf" target="blank">Resume</a>
-                    <!-- <object data="../docs/Dohyun F2021 Updated.pdf" type="application/pdf" style="height: -webkit-fill-available;width: -webkit-fill-available"/> -->
                 </div>
                 <div class="minor-title-links">
                     <a href="https://github.com/dohyunmoo" target="blank">Github</a>
@@ -23,11 +23,18 @@
 
 <script>
 export default {
+    created() {
+        setInterval(() => {
+            this.increment()
+            this.show = !this.show
+        }, 750)
+    },
     name: 'title-page',
     data() {
         return {
             index: 0,
             titles: ['Software Developer', 'Frontend Developer', 'Motivated', 'Innovator', 'UFC Mania', 'League of Legends Enjoyer'],
+            show: true,
         }
     },
     methods: {
@@ -56,6 +63,10 @@ export default {
 }
 
 .titles {
+    height: 48px;
+}
+
+.title-content {
     font-weight: bolder;
 }
 
@@ -74,7 +85,12 @@ export default {
     border-radius: 10px;
 }
 
-.title-links a:hover {
+.minor-title-links a:hover {
+    background-color: #2c3e50;
+    color: #fcae1e;
+}
+
+.major-title-links a:hover {
     background-color: #2c3e50;
     color: #fcae1e;
 }
@@ -91,6 +107,30 @@ export default {
 
 .major-title-links a {
     font-size: 36px;
+}
+
+.title-change-enter-from {
+    opacity: 0;
+    transform: translateY(-25px);
+}
+
+.title-change-enter-active {
+    transition: all 0.3s ease;
+}
+
+.title-change-leave-from,
+.title-change-enter-to {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.title-change-leave-to {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.title-change-leave-active {
+    transition: all 0.3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 
 </style>

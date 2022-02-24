@@ -1,7 +1,7 @@
 <template>
     <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="main">
         <div v-for="(a,i) in jobData" :key="i" :data-index="i" :class="[a.id%2 == 1 ? 'experience-left': 'experience-right']">
-            <div class="scrolled">
+            <div class="content">
                 <h4>{{ a.jobTitle }} @ <span>{{ a.company }}</span></h4>
                 <p>{{ a.content }}</p>
             </div>
@@ -24,14 +24,14 @@ export default {
         const enter = (element, done) => {
             gsap.to(element, {
                 scrollTrigger: {
-                    trigger: '.scrolled',
-                    start: 'center center',
+                    trigger: '.content',
+                    start: 'bottom bottom',
                 },
                 x: 0,
                 opacity: 1,
                 duration: 1,
                 onComplete: done,
-                delay: element.dataset.index*0.2,
+                delay: 0.5 + element.dataset.index*0.7,
             })
         }
         return { beforeEnter, enter }
