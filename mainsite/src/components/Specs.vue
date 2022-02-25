@@ -1,5 +1,5 @@
 <template>
-    <div class="specs-1">
+    <div class="main">
         <div class="about">
             <h4>About Me</h4>
             <p>Hi my name is Dohyun Moon. I go to University of waterloo aifjh awiuprgfiw qvebhfbslidu fbl</p>
@@ -50,9 +50,10 @@ export default {
 </script>
 
 <style scoped>
-.specs-1 {
+.main {
     color: #2c3e50;
     height: 100vh;
+    width: 100vw;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

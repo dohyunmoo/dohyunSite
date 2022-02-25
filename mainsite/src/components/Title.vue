@@ -1,6 +1,6 @@
 <template>
-    <div class="title-1">
-        <div class="title-2">
+    <div class="main">
+        <div class="title-1">
             <p>Hi, my name is Dohyun Moon</p>
                 <p class="titles">
                 <Transition name="title-change">
@@ -33,7 +33,7 @@ export default {
     data() {
         return {
             index: 0,
-            titles: ['Software Developer', 'Frontend Developer', 'Motivated', 'Innovator', 'UFC Mania', 'League of Legends Enjoyer'],
+            titles: ['Software Developer', 'Frontend Developer', 'Motivated', 'Innovator', 'Critical Thinker', 'UFC Mania', 'League of Legends Enjoyer'],
             show: true,
         }
     },
@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style scoped>
-.title-1 {
+.main {
     display: flex;
     flex-direction: row;
     height: 100vh;
@@ -57,9 +57,10 @@ export default {
     font-size: 48px;
 }
 
-.title-2 {
+.title-1 {
     display: flex;
     flex-direction: column;
+    padding: 0;
 }
 
 .titles {
@@ -75,6 +76,7 @@ export default {
     margin: 3px;
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
 }
 
 .title-links a {

@@ -25,7 +25,7 @@ export default {
             gsap.to(element, {
                 scrollTrigger: {
                     trigger: '.content',
-                    start: 'bottom bottom',
+                    start: 'bottom 90%',
                 },
                 x: 0,
                 opacity: 1,
@@ -49,6 +49,7 @@ export default {
 <style scoped>
 .main {
     height: 150vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;

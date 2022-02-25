@@ -5,6 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link rel="icon" href="<%= BASE_URL %>feebas.ico">
+<link rel="stylesheet" href="styles.css">
 <!-- <title><%= htmlWebpackPlugin.options.title %></title> -->
 <title>Dohyun Moon</title>
     <link 
@@ -18,53 +19,28 @@
 <noscript>
     <strong>:( No Script Me No Work...</strong>
 </noscript>
+    <div id="preloader"></div>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+
+<script>
+    function fadeEffect() {
+        var loader = document.getElementById("preloader")
+        var fade = setInterval(() => {
+            if (!loader.style.opacity) {
+                loader.style.opacity = 1;
+            }
+            if (loader.style.opacity > 0) {
+                loader.style.opacity -= 0.1
+                if (loader.style.opacity == 0) {
+                    loader.style.display = "none"
+                }
+            } else {
+                clearInterval(fade)
+            }
+        }, 50)
+    }
+
+    window.addEventListener("load", fadeEffect)
+</script>
 </body>
-<style>
-* {
-    margin: 0px;
-    padding: 0%;
-    box-sizing: border-box;
-    font-weight: 400;
-}
-
-body::-webkit-scrollbar {
-    display: none;
-}
-
-body {
-    background-color: #fcae1e;
-    color: #2c3e50;
-    width: 100%;
-    overflow-x: hidden;
-}
-
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-/* @keyframes init {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-} */
-
-a:link { text-decoration: none; }
-a:visited { text-decoration: none; color: white;}
-a:hover { text-decoration: none; }
-a:active { text-decoration: none; }
-</style>
 </html>

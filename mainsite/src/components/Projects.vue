@@ -1,9 +1,37 @@
 <template>
     <div class="main">
-        <div v-for="(a,i) in projData" :key="i" class="project">
-            <h4>{{ a.projTitle }}<span></span></h4>
-            <p>{{ a.description }}</p>
-            <a :href="a.link">hello</a>
+        <div class="project-row">
+            <Transition appear @before-enter="beforeEnter1" @enter="enter">
+                <div id="wrapper-1">
+                    <div class="project">
+                        <p>item 1</p>
+                    </div> 
+                </div>
+            </Transition>
+            <Transition appear @before-enter="beforeEnter2" @enter="enter">
+                <div id="wrapper-2">
+                    <div class="project">
+                        <p>item 2</p>
+                    </div>
+                </div>
+            </Transition>
+        </div>
+        <div id="blocker">-</div>
+        <div class="project-row">
+            <Transition appear @before-enter="beforeEnter3" @enter="enter">
+                <div id="wrapper-3">
+                    <div class="project">
+                        <p>item 3</p>
+                    </div>
+                </div>
+            </Transition>
+            <Transition appear @before-enter="beforeEnter4" @enter="enter">
+                <div id="wrapper-4">
+                    <div class="project">
+                        <p>item 4</p>
+                    </div>
+                </div>
+            </Transition>
         </div>
     </div>
 </template>
@@ -11,8 +39,41 @@
 <script>
 
 import projData from '../assets/projData.js'
+import gsap from 'gsap'
 
 export default {
+    setup() {
+        const beforeEnter1 = (element) => {
+            element.style.transform = 'translateX(-100px)'
+            element.style.opacity = 0
+        }
+        const beforeEnter2 = (element) => {
+            element.style.transform = 'translateY(-100px)'
+            element.style.opacity = 0
+        }
+        const beforeEnter3 = (element) => {
+            element.style.transform = 'translateY(100px)'
+            element.style.opacity = 0
+        }
+        const beforeEnter4 = (element) => {
+            element.style.transform = 'translateX(100px)'
+            element.style.opacity = 0
+        }
+        const enter = (element, done) => {
+            gsap.to(element, {
+                scrollTrigger: {
+                    trigger: '#blocker',
+                    start: 'center 60%',
+                },
+                x: 0,
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                onComplete: done
+            })
+        }
+        return { beforeEnter1, beforeEnter2, beforeEnter3, beforeEnter4, enter}
+    },
     name: 'my-projects',
     props: [''],
     data() {
@@ -26,18 +87,27 @@ export default {
 <style scoped>
 .main {
     height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-row {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content: center;
+    /* background: #2c3e50; */
+    width: 60%;
+    margin: 3px;
 }
 
 .project {
-    background-color: rgba(255,255,255,0.8);
-    width: 70%;
-    height: 30%;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    margin-left: -50vh;
+    background-color: rgb(255,255,255);
+    width: 30vw;
+    height: 30vh;
+    margin: 0px 3px;
 }
 
 .project p {
@@ -61,5 +131,10 @@ export default {
 .project:hover {
     background-color: #2c3e50;
     color: #fcae1e;
+}
+
+#blocker {
+    color: #fcae1e;
+    height: 1px;
 }
 </style>
