@@ -3,7 +3,9 @@
         <nav>
             <Transition appear @before-enter="beforeEnter" @enter="enter">
                 <div class="feeb">
-                        <img src="./assets/feebas.png" alt="feebas">
+                    <a href="https://pokemondb.net/pokedex/feebas" target="blank">
+                        <img src="./assets/feebas.png"  alt="feebas">
+                    </a>
                     <div class="contact-email">
                         <a href="mailto:d6moon@uwaterloo.ca">d6moon@uwaterloo.ca</a>
                     </div>
@@ -173,6 +175,10 @@ li {
 .feeb img {
     width: 50px;
     transition: 0.8s ease all;
+    margin-left: 20%;
+}
+
+.feeb a {
     margin-left: 20%;
 }
 
