@@ -25,7 +25,7 @@ export default {
             gsap.to(element, {
                 scrollTrigger: {
                     trigger: '.content',
-                    start: 'bottom 90%',
+                    start: 'bottom top',
                 },
                 x: 0,
                 opacity: 1,
