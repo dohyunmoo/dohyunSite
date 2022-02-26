@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        <img src="../assets/feebas.png" alt="feebas">
+        <img src="../assets/images/feebas.png" alt="feebas">
     </div>
 </template>
 

@@ -4,7 +4,7 @@
             <Transition appear @before-enter="beforeEnter" @enter="enter">
                 <div class="feeb">
                     <a href="https://pokemondb.net/pokedex/feebas" target="blank">
-                        <img src="./assets/feebas.png"  alt="feebas">
+                        <img src="./assets/images/feebas.png"  alt="feebas">
                     </a>
                     <div class="contact-email">
                         <a href="mailto:d6moon@uwaterloo.ca">d6moon@uwaterloo.ca</a>
@@ -18,11 +18,11 @@
             </Transition>
             <Transition name="side-nav">
                 <ul v-show="toggle" class="dropdown-nav">
-                    <img src="./assets/feebas.png" alt="feebas">
+                    <img src="./assets/images/feebas.png" alt="feebas">
                     <li><a class="link" href="#home">Main</a></li>
                     <li><a class="link" href="#about">About Me</a></li>
-                    <li><a class="link" href="#about">Specializations</a></li>
-                    <li><a class="link" href="#experience">Experience</a></li>
+                    <!-- <li><a class="link" href="#about">Specializations</a></li> -->
+                    <!-- <li><a class="link" href="#experience">Experience</a></li> -->
                     <li><a class="link" href="#projects">Projects</a></li>
                     <li><a class="link" href="#contact">Contact Me</a></li>
                 </ul>
@@ -33,11 +33,11 @@
         <a name="home"><Title></Title></a>
     </h1>
     <h1>
-        <a name="about"><Specs></Specs></a>
+        <a name="about"><About></About></a>
     </h1>
-    <h1>
+    <!-- <h1>
         <a name="experience"><Experience></Experience></a>
-    </h1>
+    </h1> -->
     <h1>
         <a name="projects"><Projects></Projects></a>
     </h1>
@@ -51,8 +51,8 @@
 
 // import Navigation from './components/Navigation.vue'
 import Title from './components/Title.vue'
-import Specs from './components/Specs.vue'
-import Experience from './components/Experience.vue'
+import About from './components/About.vue'
+// import Experience from './components/Experience.vue'
 import Projects from './components/Projects.vue'
 import Contact from './components/Contact.vue'
 
@@ -87,8 +87,8 @@ export default {
     components: {
         // Navigation,
         Title,
-        Specs,
-        Experience,
+        About,
+        // Experience,
         Projects,
         Contact,
     },
@@ -210,7 +210,7 @@ li {
     width: 50%;
     max-width: 400px;
     height: 100%;
-    background-color: rgba(255,244,244,0.8);
+    background-color: rgba(255,244,244,0.5);
     color: #2c3e50;
     top: 0;
     right: 0;

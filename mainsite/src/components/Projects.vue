@@ -1,62 +1,48 @@
 <template>
     <div class="main">
-        <div class="project-row">
-            <Transition appear @before-enter="beforeEnter1" @enter="enter">
-                <div id="wrapper-1">
-                    <div class="project">
-                        <p>item 1</p>
-                    </div> 
-                </div>
-            </Transition>
-            <Transition appear @before-enter="beforeEnter2" @enter="enter">
-                <div id="wrapper-2">
-                    <div class="project">
-                        <p>item 2</p>
+        <div class="title">My Work</div>
+        <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="project-row" id="blocker">
+            <div v-for="(a,i) in Data" :key="i" :data-index="i" target="blank">
+                <div class="project" v-if="i <= 3" :class="{'left-most': i == 0, 'top': true}">
+                    <a v-if="a.link != ''" :href="a.link">
+                        <div>
+                            <h4>{{ a.title }}</h4>
+                            <p>{{ a.description }}</p>
+                        </div>
+                    </a>
+                    <div v-else>
+                        <h4>{{ a.title }} - <span>{{ a.relation }}</span></h4>
+                        <p>{{ a.description }}</p>
                     </div>
                 </div>
-            </Transition>
-        </div>
-        <div id="blocker">-</div>
-        <div class="project-row">
-            <Transition appear @before-enter="beforeEnter3" @enter="enter">
-                <div id="wrapper-3">
-                    <div class="project">
-                        <p>item 3</p>
+            </div>
+        </transition-group>
+        <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="project-row">
+            <div v-for="(a,i) in Data" :key="i" :data-index="i">
+                <div class="project" v-if="i > 3" :class="{'left-most': i == 4, 'bottom': true}">
+                    <a v-if="a.link != ''" :href="a.link" target="blank">
+                        <h4>{{ a.title }}</h4>
+                        <p>{{ a.description }}</p>
+                    </a>
+                    <div v-else>
+                        <h4>{{ a.title }} @ <span>{{ a.relation }}</span></h4>
+                        <p>{{ a.description }}</p>
                     </div>
                 </div>
-            </Transition>
-            <Transition appear @before-enter="beforeEnter4" @enter="enter">
-                <div id="wrapper-4">
-                    <div class="project">
-                        <p>item 4</p>
-                    </div>
-                </div>
-            </Transition>
-        </div>
+            </div>
+        </transition-group>     
     </div>
 </template>
 
 <script>
 
-import projData from '../assets/projData.js'
+import Data from '../assets/Data.js'
 import gsap from 'gsap'
 
 export default {
     setup() {
-        const beforeEnter1 = (element) => {
+        const beforeEnter = (element) => {
             element.style.transform = 'translateX(-100px)'
-            element.style.opacity = 0
-        }
-        const beforeEnter2 = (element) => {
-            element.style.transform = 'translateY(-100px)'
-            element.style.opacity = 0
-        }
-        const beforeEnter3 = (element) => {
-            element.style.transform = 'translateY(100px)'
-            element.style.opacity = 0
-        }
-        const beforeEnter4 = (element) => {
-            element.style.transform = 'translateX(100px)'
             element.style.opacity = 0
         }
         const enter = (element, done) => {
@@ -69,16 +55,17 @@ export default {
                 y: 0,
                 opacity: 1,
                 duration: 1,
-                onComplete: done
+                onComplete: done,
+                delay: element.dataset.index*0.25
             })
         }
-        return { beforeEnter1, beforeEnter2, beforeEnter3, beforeEnter4, enter}
+        return { beforeEnter, enter}
     },
     name: 'my-projects',
     props: [''],
     data() {
         return {
-            projData,
+            Data,
         }
     }
 }
@@ -100,14 +87,31 @@ export default {
     justify-content: center;
     /* background: #2c3e50; */
     width: 60%;
-    margin: 3px;
+    /* margin: 5px; */
 }
 
 .project {
-    background-color: rgb(255,255,255);
-    width: 30vw;
+    /* background-color: rgb(255,255,255); */
+    width: 24vw;
     height: 30vh;
-    margin: 0px 3px;
+    /* margin: 5px; */
+    border-left: 5px #fcae1e;
+    /* border-right: 5px #fcae1e; */
+    border-left-style: inset;
+    /* border-right-style: inset; */
+}
+
+.project div {
+    height: 100%;
+}
+
+.left-most {
+    border: none;
+}
+
+.top {
+    border-bottom: 5px #fcae1e;
+    border-bottom-style: inset;
 }
 
 .project p {
@@ -124,17 +128,15 @@ export default {
 
 .project span {
     background-color: #2c3e50;
-    color: #fcae1e;
-    
+    color: #ed7117;
 }
 
-.project:hover {
-    background-color: #2c3e50;
-    color: #fcae1e;
-}
-
-#blocker {
-    color: #fcae1e;
-    height: 1px;
+.title {
+    font-size: 64px;
+    top: 0;
+    left: 0;
+    margin-bottom: 5vh;
+    opacity: 0.4;
+    font-weight: bolder;
 }
 </style>

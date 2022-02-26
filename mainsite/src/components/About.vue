@@ -51,7 +51,7 @@ export default {
 
 <style scoped>
 .main {
-    color: #2c3e50;
+    /* color: #2c3e50; */
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -67,6 +67,7 @@ export default {
 .about h4 {
     font-size: 64px;
     padding: 10px;
+    font-weight: bolder;
 }
 
 .about p {
@@ -75,8 +76,8 @@ export default {
 }
 
 .skills {
-    background-color: #2c3e50;
-    color: #fcae1e;
+    color: #2c3e50;
+    background-color: #fcae1e;
     padding: 20px;
     width: 60%;
 }
