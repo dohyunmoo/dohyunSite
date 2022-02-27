@@ -29,7 +29,7 @@ export default {
                 opacity: 1,
                 duration: 1,
                 onComplete: done,
-                delay: 0.5 + element.dataset.index*0.7,
+                delay: element.dataset.index*0.7,
             })
         }
         return { beforeEnter, enter }

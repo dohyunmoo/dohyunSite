@@ -1,39 +1,109 @@
 <template>
-    <div class="main">
-        <div class="title">My Work</div>
-        <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="project-row" id="blocker">
-            <div v-for="(a,i) in Data" :key="i" :data-index="i" target="_blank">
-                <div class="project" v-if="i <= 3">
-                    <a v-if="a.link != ''" :href="a.link">
-                        <div :class="classArray[i]"></div>
-                        <h4>{{ a.title }}</h4>
-                        <p>{{ a.description }}</p>
-                    </a>
-                    <div v-else>
-                        <div :class="classArray[i]"></div>
-                        <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
-                        <p>{{ a.description }}</p>
+    <div>
+        <div v-show="!mobile" class="main">
+            <div class="title">My Work</div>
+            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="project-row" id="blocker">
+                <div v-for="(a,i) in Data" :key="i" :data-index="i">
+                    <div class="project" v-if="i <= 3">
+                        <a v-if="a.link != ''" :href="a.link">
+                            <div :class="classArray[i]"></div>
+                            <h4>{{ a.title }}</h4>
+                            <p>{{ a.description }}</p>
+                        </a>
+                        <a v-else href="resume.pdf" target="_blank">
+                            <div :class="classArray[i]"></div>
+                            <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
+                            <p>{{ a.description }}</p>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </transition-group>
-        <div class="title">Experiences</div>
-        <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="project-row">
-            <div v-for="(a,i) in Data" :key="i" :data-index="i" target="_blank">
-                <div class="project" v-if="i > 3">
-                    <a v-if="a.link != ''" :href="a.link">
-                        <div :class="classArray[i]"></div>
-                        <h4>{{ a.title }}</h4>
-                        <p>{{ a.description }}</p>
-                    </a>
-                    <div v-else>
-                        <div :class="classArray[i]"></div>
-                        <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
-                        <p>{{ a.description }}</p>
+            </transition-group>
+            <div class="title">Experiences</div>
+            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="project-row">
+                <div v-for="(a,i) in Data" :key="i" :data-index="i" target="_blank">
+                    <div class="project" v-if="i > 3">
+                        <a v-if="a.link != ''" :href="a.link">
+                            <div :class="classArray[i]"></div>
+                            <h4>{{ a.title }}</h4>
+                            <p>{{ a.description }}</p>
+                        </a>
+                        <a v-else href="resume.pdf" target="_blank">
+                            <div :class="classArray[i]"></div>
+                            <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
+                            <p>{{ a.description }}</p>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </transition-group>     
+            </transition-group>     
+        </div>
+        <div v-show="mobile" class="main">
+            <div class="title">My Work</div>
+            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enterMobile" class="project-row" id="blocker">
+                <div v-for="(a,i) in Data" :key="i" :data-index="i">
+                    <div class="project" v-if="i <= 1">
+                        <a v-if="a.link != ''" :href="a.link">
+                            <div :class="classArray[i]"></div>
+                            <h4>{{ a.title }}</h4>
+                            <p>{{ a.description }}</p>
+                        </a>
+                        <a v-else href="resume.pdf" target="_blank">
+                            <div :class="classArray[i]"></div>
+                            <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
+                            <p>{{ a.description }}</p>
+                        </a>
+                    </div>
+                </div>
+            </transition-group>
+            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enterMobile" class="project-row" id="blocker">
+                <div v-for="(a,i) in Data" :key="i" :data-index="i">
+                    <div class="project" v-if="i > 1 && i <= 3">
+                        <a v-if="a.link != ''" :href="a.link">
+                            <div :class="classArray[i]"></div>
+                            <h4>{{ a.title }}</h4>
+                            <p>{{ a.description }}</p>
+                        </a>
+                        <a v-else href="resume.pdf" target="_blank">
+                            <div :class="classArray[i]"></div>
+                            <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
+                            <p>{{ a.description }}</p>
+                        </a>
+                    </div>
+                </div>
+            </transition-group>
+            <div class="title">Experiences</div>
+            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enterMobile" class="project-row">
+                <div v-for="(a,i) in Data" :key="i" :data-index="i" target="_blank">
+                    <div class="project" v-if="i > 3 && i <= 5">
+                        <a v-if="a.link != ''" :href="a.link">
+                            <div :class="classArray[i]"></div>
+                            <h4>{{ a.title }}</h4>
+                            <p>{{ a.description }}</p>
+                        </a>
+                        <a v-else href="resume.pdf" target="_blank">
+                            <div :class="classArray[i]"></div>
+                            <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
+                            <p>{{ a.description }}</p>
+                        </a>
+                    </div>
+                </div>
+            </transition-group>
+            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enterMobile" class="project-row">
+                <div v-for="(a,i) in Data" :key="i" :data-index="i" target="_blank">
+                    <div class="project" v-if="i > 5">
+                        <a v-if="a.link != ''" :href="a.link">
+                            <div :class="classArray[i]"></div>
+                            <h4>{{ a.title }}</h4>
+                            <p>{{ a.description }}</p>
+                        </a>
+                        <a v-else href="resume.pdf" target="_blank">
+                            <div :class="classArray[i]"></div>
+                            <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
+                            <p>{{ a.description }}</p>
+                        </a>
+                    </div>
+                </div>
+            </transition-group>
+        </div>
     </div>
 </template>
 
@@ -62,7 +132,22 @@ export default {
                 delay: element.dataset.index*0.25
             })
         }
-        return { beforeEnter, enter}
+
+        const enterMobile = (element, done) => {
+            gsap.to(element, {
+                scrollTrigger: {
+                    trigger: '#blocker',
+                    start: 'center 60%',
+                },
+                x: 0,
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                onComplete: done,
+                delay: element.dataset.index*0.75
+            })
+        }
+        return { beforeEnter, enter, enterMobile}
     },
     name: 'my-projects',
     props: [''],
@@ -70,8 +155,25 @@ export default {
         return {
             Data,
             classArray: ['rain', 'pokemon', 'league', 'website', 'rogers', 'imagine', 'method', 'titus'],
+            mobile: false,
+            windowWidth: null
         }
-    }
+    },
+    created() {
+        window.addEventListener('resize', this.checkMobile)
+        this.checkMobile()
+    },
+    methods: {
+        checkMobile() {
+            this.windowWidth = window.innerWidth
+            if (this.windowWidth <= 500) { 
+                this.mobile = true
+                return
+            }
+            this.mobile = false
+            return
+        }
+    },
 }
 </script>
 
@@ -194,10 +296,24 @@ export default {
     .main {
         display: flex;
         flex-direction: column;
-        height: 200vh;
+        height: 180vh;
         align-items: center;
         justify-content: center;
         text-align: left;
+    }
+
+    .project {
+        width: 50vw;
+        height: 50vw;
+    }
+
+    .project h4 {
+        font-size: 20px;
+    }
+
+    .project p {
+        padding: 20px;
+        font-size: 14px;
     }
 }
 

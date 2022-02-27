@@ -1,16 +1,17 @@
 <template>
     <div class="main">
         <div class="title-1">
-            <p class="inner-p">Hi, my name is Dohyun Moon</p>
+            <p v-show="!mobile" class="inner-p">Hi, my name is Dohyun Moon</p>
+            <p v-show="mobile" class="inner-p-mobile">Hi, my name is <br> Dohyun Moon</p>
                 <p class="titles">
                 <Transition name="title-change">
                     <p v-text="titles[index]" v-if="show" class="title-content"></p>
                 </Transition>
                 </p>
             <div class="title-links">
-                <div class="major-title-links">
-                    <a href="/Dohyun F2021 Updated.pdf" target="_blank">Resume</a>
-                </div>
+                <p class="major-title-links">
+                    <a href="file:///C:/Personal%20Programming/Web%20Dev/dohyunSite/mainsite/src/assets/resume.pdf" target="_blank">Resume</a>
+                </p>
                 <div class="minor-title-links">
                     <a href="https://github.com/dohyunmoo" target="_blank">Github</a>
                     <a href="https://www.linkedin.com/in/dohyun-m-50a551165/" target="_blank">LinkedIn</a>
@@ -28,6 +29,9 @@ export default {
             this.increment()
             this.show = !this.show
         }, 750)
+
+        window.addEventListener('resize', this.checkMobile)
+        this.checkMobile()
     },
     name: 'title-page',
     data() {
@@ -35,12 +39,23 @@ export default {
             index: 0,
             titles: ['Software Developer', 'Frontend Developer', 'Motivated', 'Innovator', 'Critical Thinker', 'UFC Mania', 'Riot Games Fan'],
             show: true,
+            mobile: false,
+            windowWidth: null
         }
     },
     methods: {
         increment() {
             if((this.index+1) == this.titles.length) this.index = 0
             else this.index++
+        },
+        checkMobile() {
+            this.windowWidth = window.innerWidth
+            if (this.windowWidth <= 500) { 
+                this.mobile = true
+                return
+            }
+            this.mobile = false
+            return
         }
     },
 }
@@ -156,9 +171,11 @@ export default {
         margin-right: 10%;
     }
 
-    .inner-p, .titles{
+    .inner-p-mobile, .titles{
         text-align: center;
+        font-size: 42px;
     }
+
 
     .title-links {
         align-items: center;

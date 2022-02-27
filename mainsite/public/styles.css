@@ -28,6 +28,10 @@ html {
     scroll-behavior: smooth;
 }
 
+a {
+    color: #fcae1e;
+}
+
 a:link { text-decoration: none; }
 a:visited { text-decoration: none; color: #fcae1e;}
 a:hover { text-decoration: none; }

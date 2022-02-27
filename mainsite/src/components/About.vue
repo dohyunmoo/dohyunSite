@@ -113,11 +113,13 @@ export default {
     .about {
         width: 100vw;
         height: 50vh;
+        margin: 0;
     }
 
     .skills {
         width: 100vw;
         height: 100vh;
+        margin: 0;
     }
 
     .skills h4 {
