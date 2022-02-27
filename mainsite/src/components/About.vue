@@ -2,7 +2,11 @@
     <div class="main">
         <div class="about">
             <h4>About Me</h4>
-            <p>Hi my name is Dohyun Moon. I go to University of waterloo aifjh awiuprgfiw qvebhfbslidu fbl</p>
+            <p>I'm an inspired developer fully charged with creativity.</p>
+            <p>Ever since I learned about programming in the first semester of my undergraduate degree, I was fascinated with what it can achieve!
+                My never-ending desire to learn innovative technologies  
+            </p>
+            <p></p>
         </div>
         <Transition appear @before-enter="beforeEnter" @enter="enter">        
             <div class="skills">
@@ -72,7 +76,7 @@ export default {
 
 .about p {
     text-align: left;
-    font-size: 32px;
+    font-size: 24px;
 }
 
 .skills {
@@ -94,5 +98,36 @@ export default {
 .content h4 {
     font-size: 56px;
     padding: 10px;
+}
+
+@media (max-width: 500px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        height: 150vh;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+    }
+
+    .about {
+        width: 100vw;
+        height: 50vh;
+    }
+
+    .skills {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .skills h4 {
+        font-size: 48px;
+        padding: 0;
+        padding-bottom: 15px;
+    }
+
+    .skills p {
+        font-size: 24px;
+    }
 }
 </style>

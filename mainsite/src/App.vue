@@ -22,7 +22,7 @@
                     <li><a class="link" href="#home">Main</a></li>
                     <li><a class="link" href="#about">About Me</a></li>
                     <!-- <li><a class="link" href="#about">Specializations</a></li> -->
-                    <!-- <li><a class="link" href="#experience">Experience</a></li> -->
+                    <li><a class="link" href="#specs">Specialties</a></li>
                     <li><a class="link" href="#projects">Projects</a></li>
                     <li><a class="link" href="#contact">Contact Me</a></li>
                 </ul>
@@ -35,24 +35,22 @@
     <h1>
         <a name="about"><About></About></a>
     </h1>
-    <!-- <h1>
-        <a name="experience"><Experience></Experience></a>
-    </h1> -->
+    <h1>
+        <a name="specs"><Specialties></Specialties></a>
+    </h1>
     <h1>
         <a name="projects"><Projects></Projects></a>
     </h1>
     <h1>
         <a name="contact"><Contact></Contact></a>
     </h1>
-    <!-- <Navigation id="nav"></Navigation> -->
 </template>
 
 <script>
 
-// import Navigation from './components/Navigation.vue'
 import Title from './components/Title.vue'
 import About from './components/About.vue'
-// import Experience from './components/Experience.vue'
+import Specialties from './components/Specialties.vue'
 import Projects from './components/Projects.vue'
 import Contact from './components/Contact.vue'
 
@@ -82,13 +80,13 @@ export default {
             toggle: false,
             windowWidth: null,
             mobile: false,
+            txt: '',
         }
     },
     components: {
-        // Navigation,
         Title,
         About,
-        // Experience,
+        Specialties,
         Projects,
         Contact,
     },

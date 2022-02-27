@@ -5,14 +5,14 @@
         </div>
         <div class="container">
             <form>
-                <label for="name">Name</label>
+                <label class="label" for="name">Name</label>
                 <input type="text" id="name" name="firstname" placeholder="Your name..">
-                <label for="name">Email</label>
+                <label class="label" for="name">Email</label>
                 <input type="text" id="email" name="emailaddress" placeholder="Your email..">
 
-                <label for="subject">Subject</label>
+                <label class="label" for="subject">Subject</label>
                 <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-                <input type="submit" value="Submit">
+                <input class="submit-btn" type="submit" value="Submit">
             </form>
         </div>
     </div>
@@ -75,5 +75,42 @@ input[type=submit]:hover {
     margin-right: 15%;
     width: 35%;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 500px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        width: 100vw;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+    }
+
+    .contact-1 {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        font-size: 64px;
+        margin-bottom: 10%;
+    }
+
+    .container {
+        margin: 0;
+        width: 90%;
+        align-items: center;
+    }
+
+    .label {
+        text-align: center;
+    }
+
+    .submit-btn {
+        align-self: center;
+    }
 }
 </style>

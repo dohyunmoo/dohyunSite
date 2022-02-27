@@ -2,30 +2,33 @@
     <div class="main">
         <div class="title">My Work</div>
         <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="project-row" id="blocker">
-            <div v-for="(a,i) in Data" :key="i" :data-index="i" target="blank">
-                <div class="project" v-if="i <= 3" :class="{'left-most': i == 0, 'top': true}">
+            <div v-for="(a,i) in Data" :key="i" :data-index="i" target="_blank">
+                <div class="project" v-if="i <= 3">
                     <a v-if="a.link != ''" :href="a.link">
-                        <div>
-                            <h4>{{ a.title }}</h4>
-                            <p>{{ a.description }}</p>
-                        </div>
+                        <div :class="classArray[i]"></div>
+                        <h4>{{ a.title }}</h4>
+                        <p>{{ a.description }}</p>
                     </a>
                     <div v-else>
-                        <h4>{{ a.title }} - <span>{{ a.relation }}</span></h4>
+                        <div :class="classArray[i]"></div>
+                        <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
                         <p>{{ a.description }}</p>
                     </div>
                 </div>
             </div>
         </transition-group>
+        <div class="title">Experiences</div>
         <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="project-row">
-            <div v-for="(a,i) in Data" :key="i" :data-index="i">
-                <div class="project" v-if="i > 3" :class="{'left-most': i == 4, 'bottom': true}">
-                    <a v-if="a.link != ''" :href="a.link" target="blank">
+            <div v-for="(a,i) in Data" :key="i" :data-index="i" target="_blank">
+                <div class="project" v-if="i > 3">
+                    <a v-if="a.link != ''" :href="a.link">
+                        <div :class="classArray[i]"></div>
                         <h4>{{ a.title }}</h4>
                         <p>{{ a.description }}</p>
                     </a>
                     <div v-else>
-                        <h4>{{ a.title }} @ <span>{{ a.relation }}</span></h4>
+                        <div :class="classArray[i]"></div>
+                        <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
                         <p>{{ a.description }}</p>
                     </div>
                 </div>
@@ -66,6 +69,7 @@ export default {
     data() {
         return {
             Data,
+            classArray: ['rain', 'pokemon', 'league', 'website', 'rogers', 'imagine', 'method', 'titus'],
         }
     }
 }
@@ -73,7 +77,7 @@ export default {
 
 <style scoped>
 .main {
-    height: 100vh;
+    height: 120vh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -92,43 +96,45 @@ export default {
 
 .project {
     /* background-color: rgb(255,255,255); */
-    width: 24vw;
-    height: 30vh;
-    /* margin: 5px; */
-    border-left: 5px #fcae1e;
-    /* border-right: 5px #fcae1e; */
-    border-left-style: inset;
-    /* border-right-style: inset; */
+    width: 40vh;
+    height: 40vh;
+    margin: 5px;
+    overflow: hidden;
 }
 
 .project div {
     height: 100%;
 }
 
-.left-most {
-    border: none;
-}
-
-.top {
-    border-bottom: 5px #fcae1e;
-    border-bottom-style: inset;
+.project img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
 .project p {
-    text-align: left;
+    text-align: center;
     font-size: 24px;
     font-weight: 100;
-    padding: 15px;
+    padding: 50px 0;
 }
 
 .project h4 {
     text-align: center;
     padding: 10px;
+    font-weight: bold;
+    max-height: 100px;
+    height: 50%;
 }
 
 .project span {
-    background-color: #2c3e50;
     color: #ed7117;
+}
+
+.project a {
+    height: 100%;
 }
 
 .title {
@@ -136,7 +142,63 @@ export default {
     top: 0;
     left: 0;
     margin-bottom: 5vh;
+    margin-top: 5vh;
     opacity: 0.4;
     font-weight: bolder;
 }
+
+.rain, .pokemon, .league, .website, .rogers, .imagine, .method, .titus{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.25;
+}
+
+.rain {
+    background-image: url(../assets/images/rain-project.png);
+}
+
+.pokemon {
+    background-image: url(../assets/images/feebas.png);
+}
+
+.league {
+    background-image: url(../assets/images/LoL-icon.png);
+}
+
+.website {
+    background-image: url(../assets/images/vue-logo.png);
+}
+
+.rogers {
+    background-image: url(../assets/images/Rogers-Emblem.png);
+}
+
+.imagine {
+    background-image: url(../assets/images/Imagine-logo.jpg);
+}
+
+.method {
+    background-image: url(../assets/images/method-logo.jpg);
+}
+
+.titus {
+    background-image: url(../assets/images/feebas.png);
+}
+
+@media (max-width: 500px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        height: 200vh;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+    }
+}
+
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div class="main">
         <div class="title-1">
-            <p>Hi, my name is Dohyun Moon</p>
+            <p class="inner-p">Hi, my name is Dohyun Moon</p>
                 <p class="titles">
                 <Transition name="title-change">
                     <p v-text="titles[index]" v-if="show" class="title-content"></p>
@@ -9,11 +9,11 @@
                 </p>
             <div class="title-links">
                 <div class="major-title-links">
-                    <a href="../docs/Dohyun F2021 Updated.pdf" target="blank">Resume</a>
+                    <a href="/Dohyun F2021 Updated.pdf" target="_blank">Resume</a>
                 </div>
                 <div class="minor-title-links">
-                    <a href="https://github.com/dohyunmoo" target="blank">Github</a>
-                    <a href="https://www.linkedin.com/in/dohyun-m-50a551165/" target="blank">LinkedIn</a>
+                    <a href="https://github.com/dohyunmoo" target="_blank">Github</a>
+                    <a href="https://www.linkedin.com/in/dohyun-m-50a551165/" target="_blank">LinkedIn</a>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@ export default {
     data() {
         return {
             index: 0,
-            titles: ['Software Developer', 'Frontend Developer', 'Motivated', 'Innovator', 'Critical Thinker', 'UFC Mania', 'League of Legends Enjoyer'],
+            titles: ['Software Developer', 'Frontend Developer', 'Motivated', 'Innovator', 'Critical Thinker', 'UFC Mania', 'Riot Games Fan'],
             show: true,
         }
     },
@@ -55,6 +55,7 @@ export default {
     justify-content: center;
     text-align: left;
     font-size: 48px;
+    min-height: 100%;
 }
 
 .title-1 {
@@ -133,6 +134,35 @@ export default {
 
 .title-change-leave-active {
     transition: all 0.3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+@media (max-width: 500px) {
+    .main {
+        display: flex;
+        flex-direction: column-reverse;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        font-size: 48px;
+    }
+
+    .title-1 {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        font-size: 36px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .inner-p, .titles{
+        text-align: center;
+    }
+
+    .title-links {
+        align-items: center;
+    }
 }
 
 </style>

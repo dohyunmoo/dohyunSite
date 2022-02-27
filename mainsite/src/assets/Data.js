@@ -2,7 +2,7 @@ export default [
     {
         id : 1,
         title: "Raindrop Effect",
-        description: "",
+        description: "self-project with Javascript",
         link: "https://github.com/dohyunmoo/Raindrops",
         relation: "Self Project",
         image: ''
@@ -10,15 +10,15 @@ export default [
     {
         id : 2,
         title: "Pokemon Image Matching Game",
-        description: "",
+        description: "self-project with Python",
         link: "https://github.com/dohyunmoo/Pokemon_Image_Matching",
         relation: "Self Project",
-        image: ''
+        image: '../assets/images/feebas.png'
     },
     {
         id : 3,
         title: "League of Legends User Info Extraction Tool",
-        description: "",
+        description: "self-project with Python Selenium Library",
         link: "https://github.com/dohyunmoo/LOL_Summoner_Information_Extraction",
         relation: "Self Project",
         image: ''
@@ -26,7 +26,7 @@ export default [
     {
         id : 4,
         title: "This Website :D",
-        description: "",
+        description: "self-project with Vue.js",
         link: "https://github.com/dohyunmoo/dohyunSite",
         relation: "Self Project",
         image: ''
@@ -34,7 +34,7 @@ export default [
     {
         id : 5,
         title: "Network Operations Developer",
-        description: "",
+        description: "January 2022 ~ Present",
         link: '',
         relation: "Rogers Communications",
         image: ''
@@ -42,7 +42,7 @@ export default [
     {
         id : 6,
         title: "DevOps Software Developer",
-        description: "",
+        description: "May 2021 ~ August 2021",
         link: '',
         relation: "Imagine Communications",
         image: ''
@@ -50,7 +50,7 @@ export default [
     {
         id : 7,
         title: "QA Automation Specialist",
-        description: "",
+        description: "September 2020 ~ December 2020",
         link: '',
         relation: "Method:CRM",
         image: ''
@@ -58,7 +58,7 @@ export default [
     {
         id : 8,
         title: "QA Automation Specialist (internship)",
-        description: "",
+        description: "January 2020 ~ April 2020",
         link: '',
         relation: "Titus",
         image: ''

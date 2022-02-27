@@ -1,18 +1,16 @@
 <template>
     <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="main">
-        <div v-for="(a,i) in jobData" :key="i" :data-index="i" :class="[a.id%2 == 1 ? 'experience-left': 'experience-right']">
-            <div class="content">
-                <h4>{{ a.jobTitle }} @ <span>{{ a.company }}</span></h4>
-                <p>{{ a.content }}</p>
-            </div>
+        <div v-for="(a,i) in Specs" :key="i" :data-index="i" :class="[a.id%2 == 1 ? 'experience-left': 'experience-right']">
+            <h4 v-text="a.title"></h4>
+            <p v-text="a.content"></p>
         </div>
     </transition-group>
 </template>
 
 <script>
 
-import jobData from '../assets/jobData.js'
 import gsap from 'gsap'
+import Specs from '../assets/Specs.js'
 
 export default {
     setup() {
@@ -36,11 +34,11 @@ export default {
         }
         return { beforeEnter, enter }
     },
-    name: 'coop-experience',
+    name: 'my-specs',
     props: [''],
     data() {
         return {
-            jobData,
+            Specs,
         }
     },
 }
@@ -54,13 +52,15 @@ export default {
     flex-direction: column;
     align-items: center;
 }
-
 .experience-left,
 .experience-right {
-    background-color: rgba(255,255,255,0.8);
     width: 70%;
     margin-top: 5vh;
     margin-bottom: 5vh;
+    background-color: rgba(255,255,255,0.05);
+    min-height: 100px;
+    height: 30vh;
+    overflow: hidden;
 }
 
 .experience-left p,
@@ -75,12 +75,9 @@ export default {
 .experience-right h4 {
     text-align: center;
     padding: 10px;
-}
-
-.experience-left span,
-.experience-right span {
-    background-color: #2c3e50;
-    color: #fcae1e;
+    font-style: oblique 50deg;
+    font-weight: bold;
+    font-size: 36px;
 }
 
 .experience-left {
@@ -91,9 +88,30 @@ export default {
     margin-right: -50vh;
 }
 
-/* .experience-left:hover,
-.experience-right:hover {
-    background-color: #2c3e50;
-    color: #fcae1e;
-} */
+@media (max-width: 500px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+    }
+
+    .experience-left,
+    .experience-right {
+        margin: 1%;
+        width: 95%;
+    }
+
+    .experience-left h4,
+    .experience-right h4 {
+        font-size: 28px;
+    }
+
+    .experience-left p,
+    .experience-right p {
+        font-size: 18px;
+    }
+}
 </style>
