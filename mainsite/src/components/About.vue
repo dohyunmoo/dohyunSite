@@ -4,23 +4,35 @@
             <h4>About Me</h4>
             <p>I'm an inspired developer fully charged with creativity.</p>
             <p>Ever since I learned about programming in the first semester of my undergraduate degree, I was fascinated with what it can achieve!
-                My never-ending desire to learn innovative technologies  
+                My never-ending desire to learn innovative technologies
             </p>
-            <p></p>
+            <p>hehehehehehe</p>
         </div>
-        <Transition appear @before-enter="beforeEnter" @enter="enter">        
+        <Transition appear @before-enter="beforeEnter" @enter="enter">
             <div class="skills">
                 <div class="content">
-                    <h4>Programming Languages</h4>
-                    <p>C, C++, C#, Python, HTML, CSS, Javascript, Terraform, Ansible, Powershell</p>
+                    <Transition appear @before-enter="beforeEnter" @enter="enterHeaders">
+                        <h4>Programming Languages</h4>
+                    </Transition>
+                    <Transition appear @before-enter="beforeEnter" @enter="enterSections">
+                        <p>C, C++, C#, Python, HTML, CSS, Javascript, Terraform, Ansible, Powershell</p>
+                    </Transition>
                 </div>
                 <div class="content">
-                    <h4>Frameworks and Libraries</h4>
-                    <p>VueJS, NodeJS, Selenium, Robot Framework, Pester</p>
+                    <Transition appear @before-enter="beforeEnter" @enter="enterHeaders">
+                        <h4>Frameworks and Libraries</h4>
+                    </Transition>
+                    <Transition appear @before-enter="beforeEnter" @enter="enterSections">
+                        <p>VueJS, NodeJS, Selenium, Robot Framework, Pester</p>
+                    </Transition>
                 </div>
                 <div class="content">
-                    <h4>Others</h4>
-                    <p>Azure, vSphere, Jenkins, Git, Docker, Linux/Windows CLI</p>
+                    <Transition appear @before-enter="beforeEnter" @enter="enterHeaders">
+                        <h4>Others</h4>
+                    </Transition>
+                    <Transition appear @before-enter="beforeEnter" @enter="enterSections">
+                        <p>Azure, vSphere, Jenkins, Git, Docker, Linux/Windows CLI</p>
+                    </Transition>
                 </div>
             </div>
         </Transition>
@@ -41,12 +53,38 @@ export default {
             gsap.to(element, {
                 scrollTrigger: {
                     trigger: '.skills',
+                    start: 'top center'
                 },
                 duration: 0.75,
                 opacity: 1,
             })
         }
-        return { beforeEnter, enter }
+
+        const enterHeaders = (element) => {
+            gsap.to(element, {
+                scrollTrigger: {
+                    trigger: '.content',
+                    start: 'center center'
+                },
+                // delay: 0.75,
+                duration: 0.75,
+                opacity: 1,
+            })
+        }
+
+        const enterSections = (element) => {
+            gsap.to(element, {
+                scrollTrigger: {
+                    trigger: '.content',
+                    start: 'center center'
+                },
+                delay: 1,
+                duration: 0.75,
+                opacity: 1,
+            })
+        }
+
+        return { beforeEnter, enter, enterHeaders, enterSections }
     },
     name: 'about-me',
     props: ['']
@@ -63,20 +101,22 @@ export default {
     justify-content: space-around;
 }
 
+
 .about {
-    padding: 5vh;
+    padding-top: 5vh;
     width: 40%;
 }
 
 .about h4 {
     font-size: 64px;
-    padding: 10px;
+    padding: 20px;
     font-weight: bolder;
 }
 
 .about p {
     text-align: left;
     font-size: 24px;
+    padding: 0 40px;
 }
 
 .skills {
@@ -84,6 +124,11 @@ export default {
     background-color: #fcae1e;
     padding: 20px;
     width: 60%;
+    overflow: scroll;
+}
+
+.skills::-webkit-scrollbar {
+    display: none;
 }
 
 .content {
@@ -114,6 +159,15 @@ export default {
         width: 100vw;
         height: 50vh;
         margin: 0;
+    }
+
+    .about h4 {
+        font-size: 48px;
+        text-align: center;
+    }
+
+    .about p {
+        font-size: 20px;
     }
 
     .skills {

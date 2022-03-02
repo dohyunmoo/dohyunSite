@@ -2,16 +2,15 @@
     <div class="main">
         <div class="title-1">
             <p v-show="!mobile" class="inner-p">Hi, my name is Dohyun Moon</p>
-            <p v-show="mobile" class="inner-p-mobile">Hi, my name is <br> Dohyun Moon</p>
-                <p class="titles">
-                <Transition name="title-change">
-                    <p v-text="titles[index]" v-if="show" class="title-content"></p>
-                </Transition>
-                </p>
+            <p v-show="mobile" class="inner-p-mobile">Hi, my name is</p>
+            <p v-show="mobile" class="inner-p-mobile">Dohyun Moon</p>
+            <div id="titles">
+                <span class="titles"></span><span class="cursor" v-show="!mobile">_</span>
+            </div>
             <div class="title-links">
-                <p class="major-title-links">
+                <div class="major-title-links">
                     <a href="file:///C:/Personal%20Programming/Web%20Dev/dohyunSite/mainsite/src/assets/resume.pdf" target="_blank">Resume</a>
-                </p>
+                </div>
                 <div class="minor-title-links">
                     <a href="https://github.com/dohyunmoo" target="_blank">Github</a>
                     <a href="https://www.linkedin.com/in/dohyun-m-50a551165/" target="_blank">LinkedIn</a>
@@ -23,13 +22,22 @@
 </template>
 
 <script>
-export default {
-    created() {
-        setInterval(() => {
-            this.increment()
-            this.show = !this.show
-        }, 750)
+import gsap from 'gsap'
 
+export default {
+    mounted() {
+        var masterTl = gsap.timeline({repeat: -1})
+        
+        this.titles.forEach(title => {
+            var tl = gsap.timeline({repeat: 1, yoyo: true, repeatDelay: 1})
+            tl.to('.titles', {duration: 1, text: title})
+            masterTl.add(tl)
+        })
+
+        var cursor = gsap.to('.cursor', {opacity: 0, repeatDelay: 0.25, ease: "power2.inOut", repeat: -1})
+        cursor
+    },
+    created() {
         window.addEventListener('resize', this.checkMobile)
         this.checkMobile()
     },
@@ -44,10 +52,6 @@ export default {
         }
     },
     methods: {
-        increment() {
-            if((this.index+1) == this.titles.length) this.index = 0
-            else this.index++
-        },
         checkMobile() {
             this.windowWidth = window.innerWidth
             if (this.windowWidth <= 500) { 
@@ -71,28 +75,26 @@ export default {
     text-align: left;
     font-size: 48px;
     min-height: 100%;
+    overflow: hidden;
 }
 
 .title-1 {
     display: flex;
     flex-direction: column;
     padding: 0;
+    font-size: 64px;
 }
 
 .titles {
-    height: 48px;
-}
-
-.title-content {
+    height: 64px;
     font-weight: bolder;
 }
 
 .title-links {
     /* background-color: black; */
-    margin: 3px;
+    margin-left: 3px;
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
 }
 
 .title-links a {
@@ -127,30 +129,6 @@ export default {
     font-size: 36px;
 }
 
-.title-change-enter-from {
-    opacity: 0;
-    transform: translateY(-25px);
-}
-
-.title-change-enter-active {
-    transition: all 0.3s ease;
-}
-
-.title-change-leave-from,
-.title-change-enter-to {
-    opacity: 1;
-    transform: translateY(0px);
-}
-
-.title-change-leave-to {
-    opacity: 0;
-    transform: translateY(10px);
-}
-
-.title-change-leave-active {
-    transition: all 0.3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-
 @media (max-width: 500px) {
     .main {
         display: flex;
@@ -171,15 +149,13 @@ export default {
         margin-right: 10%;
     }
 
-    .inner-p-mobile, .titles{
+    .inner-p-mobile, .titles {
         text-align: center;
         font-size: 42px;
     }
-
 
     .title-links {
         align-items: center;
     }
 }
-
 </style>

@@ -37,6 +37,7 @@ export default {
     height: 100vh;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
 }
 
 .contact-1 {

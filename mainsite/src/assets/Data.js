@@ -26,7 +26,7 @@ export default [
     {
         id : 4,
         title: "This Website :D",
-        description: "self-project with Vue.js",
+        description: "self-project with HTML, CSS, Javascript, and Vue.js",
         link: "https://github.com/dohyunmoo/dohyunSite",
         relation: "Self Project",
         image: ''

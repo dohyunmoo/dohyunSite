@@ -52,12 +52,14 @@ export default {
     flex-direction: column;
     align-items: center;
 }
+
 .experience-left,
 .experience-right {
     width: 70%;
     margin-top: 5vh;
     margin-bottom: 5vh;
     background-color: rgba(255,255,255,0.05);
+    box-shadow: 25px 10px rgba(255,255,255,0.02);
     min-height: 100px;
     height: 30vh;
     overflow: hidden;
@@ -86,6 +88,11 @@ export default {
 
 .experience-right {
     margin-right: -50vh;
+}
+
+.experience-left:hover,
+.experience-right:hover {
+    box-shadow: 25px 10px rgba(255,255,255,0.5);
 }
 
 @media (max-width: 500px) {

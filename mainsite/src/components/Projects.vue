@@ -2,7 +2,7 @@
     <div>
         <div v-show="!mobile" class="main">
             <div class="title">My Work</div>
-            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="project-row" id="blocker">
+            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="project-row">
                 <div v-for="(a,i) in Data" :key="i" :data-index="i">
                     <div class="project" v-if="i <= 3">
                         <a v-if="a.link != ''" :href="a.link">
@@ -38,7 +38,7 @@
         </div>
         <div v-show="mobile" class="main">
             <div class="title">My Work</div>
-            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enterMobile" class="project-row" id="blocker">
+            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enterMobile" class="project-row">
                 <div v-for="(a,i) in Data" :key="i" :data-index="i">
                     <div class="project" v-if="i <= 1">
                         <a v-if="a.link != ''" :href="a.link">
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </transition-group>
-            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enterMobile" class="project-row" id="blocker">
+            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enterMobile" class="project-row">
                 <div v-for="(a,i) in Data" :key="i" :data-index="i">
                     <div class="project" v-if="i > 1 && i <= 3">
                         <a v-if="a.link != ''" :href="a.link">
@@ -121,7 +121,7 @@ export default {
         const enter = (element, done) => {
             gsap.to(element, {
                 scrollTrigger: {
-                    trigger: '#blocker',
+                    trigger: '.project-row',
                     start: 'center 60%',
                 },
                 x: 0,
@@ -136,7 +136,7 @@ export default {
         const enterMobile = (element, done) => {
             gsap.to(element, {
                 scrollTrigger: {
-                    trigger: '#blocker',
+                    trigger: '.project-row',
                     start: 'center 60%',
                 },
                 x: 0,
@@ -185,6 +185,11 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: scroll;
+}
+
+.main::-webkit-scrollbar {
+    display: none;
 }
 
 .project-row {
