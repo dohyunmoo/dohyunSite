@@ -9,7 +9,7 @@
             </div>
             <div class="title-links">
                 <div class="major-title-links">
-                    <a href="file:///C:/Personal%20Programming/Web%20Dev/dohyunSite/mainsite/src/assets/resume.pdf" target="_blank">Resume</a>
+                    <a href="https://github.com/dohyunmoo/dohyunSite/blob/main/mainsite/src/assets/resume.pdf" target="_blank">Resume</a>
                 </div>
                 <div class="minor-title-links">
                     <a href="https://github.com/dohyunmoo" target="_blank">Github</a>
@@ -136,7 +136,7 @@ export default {
         height: 100vh;
         align-items: center;
         justify-content: center;
-        text-align: left;
+        text-align: center;
         font-size: 48px;
     }
 
@@ -152,6 +152,10 @@ export default {
     .inner-p-mobile, .titles {
         text-align: center;
         font-size: 42px;
+    }
+
+    .major-title-links {
+        margin-top: 10px;
     }
 
     .title-links {

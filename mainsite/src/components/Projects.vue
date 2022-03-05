@@ -244,13 +244,17 @@ export default {
     height: 100%;
 }
 
+.project a:hover {
+    text-shadow: 3px 2px black;
+}
+
 .title {
     font-size: 64px;
     top: 0;
     left: 0;
     margin-bottom: 5vh;
     margin-top: 5vh;
-    opacity: 0.4;
+    opacity: 1;
     font-weight: bolder;
 }
 

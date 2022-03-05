@@ -2,40 +2,28 @@
     <div class="main">
         <div class="about">
             <h4>About Me</h4>
-            <p>I'm an inspired developer fully charged with creativity.</p>
-            <p>Ever since I learned about programming in the first semester of my undergraduate degree, I was fascinated with what it can achieve!
-                My never-ending desire to learn innovative technologies
-            </p>
-            <p>hehehehehehe</p>
-        </div>
-        <Transition appear @before-enter="beforeEnter" @enter="enter">
-            <div class="skills">
-                <div class="content">
-                    <Transition appear @before-enter="beforeEnter" @enter="enterHeaders">
-                        <h4>Programming Languages</h4>
-                    </Transition>
-                    <Transition appear @before-enter="beforeEnter" @enter="enterSections">
-                        <p>C, C++, C#, Python, HTML, CSS, Javascript, Terraform, Ansible, Powershell</p>
-                    </Transition>
-                </div>
-                <div class="content">
-                    <Transition appear @before-enter="beforeEnter" @enter="enterHeaders">
-                        <h4>Frameworks and Libraries</h4>
-                    </Transition>
-                    <Transition appear @before-enter="beforeEnter" @enter="enterSections">
-                        <p>VueJS, NodeJS, Selenium, Robot Framework, Pester</p>
-                    </Transition>
-                </div>
-                <div class="content">
-                    <Transition appear @before-enter="beforeEnter" @enter="enterHeaders">
-                        <h4>Others</h4>
-                    </Transition>
-                    <Transition appear @before-enter="beforeEnter" @enter="enterSections">
-                        <p>Azure, vSphere, Jenkins, Git, Docker, Linux/Windows CLI</p>
-                    </Transition>
-                </div>
+            <div class="about-texts">
+                <p>I'm an inspired developer fully charged with creativity.</p>
+                <p>Ever since I learned about programming in the first semester of my undergraduate degree, I was fascinated with what it can achieve!
+                    My never-ending desire to learn innovative technologies
+                </p>
+                <p>hehehehehehe</p>
             </div>
-        </Transition>
+        </div>
+        <div class="skills">
+            <div class="content">
+                <h4>Programming Languages</h4>
+                <p>C, C++, C#, Python, HTML, CSS, Javascript, Terraform, Ansible, Powershell</p>
+            </div>
+            <div class="content">
+                <h4>Frameworks and Libraries</h4>
+                <p>VueJS, NodeJS, Selenium, Robot Framework, Pester</p>
+            </div>
+            <div class="content">
+                <h4>Others</h4>
+                <p>Git, Linux/Windows CLI, Azure, vSphere, Jenkins, Docker</p>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -44,54 +32,43 @@
 import gsap from 'gsap'
 
 export default {
-    setup() {
-        const beforeEnter = (element) => {
-            element.style.opacity = 0
-        }
-
-        const enter = (element) => {
-            gsap.to(element, {
-                scrollTrigger: {
-                    trigger: '.skills',
-                    start: 'top center'
-                },
-                duration: 0.75,
-                opacity: 1,
-            })
-        }
-
-        const enterHeaders = (element) => {
-            gsap.to(element, {
-                scrollTrigger: {
-                    trigger: '.content',
-                    start: 'center center'
-                },
-                // delay: 0.75,
-                duration: 0.75,
-                opacity: 1,
-            })
-        }
-
-        const enterSections = (element) => {
-            gsap.to(element, {
-                scrollTrigger: {
-                    trigger: '.content',
-                    start: 'center center'
-                },
-                delay: 1,
-                duration: 0.75,
-                opacity: 1,
-            })
-        }
-
-        return { beforeEnter, enter, enterHeaders, enterSections }
+    mounted() {
+        this.scrollAnimation()
     },
     name: 'about-me',
-    props: ['']
+    props: [''],
+    data() {
+        return {
+            on: false,
+        }
+    },
+    methods: {
+        scrollAnimation() {
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.skills',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true,
+                }
+            })
+            .from('.skills', {opacity: 0})
+            .to('.skills', {opacity: 0})
+        },
+    },
 }
 </script>
 
 <style scoped>
+
+.exm {
+    visibility: hidden;
+}
+
+.neg {
+    visibility: visible;
+}
+
 .main {
     /* color: #2c3e50; */
     height: 100vh;
@@ -105,6 +82,11 @@ export default {
 .about {
     padding-top: 5vh;
     width: 40%;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .about h4 {
@@ -113,7 +95,7 @@ export default {
     font-weight: bolder;
 }
 
-.about p {
+.about-texts {
     text-align: left;
     font-size: 24px;
     padding: 0 40px;

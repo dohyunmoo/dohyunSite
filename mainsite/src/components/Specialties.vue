@@ -5,6 +5,12 @@
             <p v-text="a.content"></p>
         </div>
     </transition-group>
+    <!-- <div class="main">
+        <div v-for="(a,i) in Specs" :key="i" :data-index="i" :class="[a.id%2 == 1 ? 'experience-left': 'experience-right']">
+            <h4 v-text="a.title"></h4>
+            <p v-text="a.content"></p>
+        </div>
+    </div> -->
 </template>
 
 <script>
@@ -34,6 +40,10 @@ export default {
         }
         return { beforeEnter, enter }
     },
+    // mounted() {
+    //     this.leftScrollAnimation()
+    //     this.rightScrollAnimation()
+    // },
     name: 'my-specs',
     props: [''],
     data() {
@@ -41,6 +51,35 @@ export default {
             Specs,
         }
     },
+    // methods: {
+    //     leftScrollAnimation() {
+    //         gsap.timeline({
+    //             scrollTrigger: {
+    //                 trigger: '.experience-left',
+    //                 start: 'top bottom',
+    //                 end: 'bottom top',
+    //                 scrub: true,
+    //                 markers: true
+    //             }
+    //         })
+    //         .from('.experience-left', {opacity: 0})
+    //         .to('.experience-left', {opacity: 0})
+    //     },
+
+    //     rightScrollAnimation() {
+    //         gsap.timeline({
+    //             scrollTrigger: {
+    //                 trigger: '.experience-right',
+    //                 start: 'top bottom',
+    //                 end: 'bottom top',
+    //                 scrub: true,
+    //                 markers: true
+    //             }
+    //         })
+    //         .from('.experience-right', {opacity: 0})
+    //         .to('.experience-right', {opacity: 0})
+    //     },
+    // },
 }
 </script>
 

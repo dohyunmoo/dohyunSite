@@ -4,7 +4,7 @@
             <Transition appear @before-enter="beforeEnter" @enter="enter">
                 <div class="feeb">
                     <a href="https://pokemondb.net/pokedex/feebas" target="blank">
-                        <img src="./assets/images/feebas.png"  alt="feebas">
+                        <img src="../assets/images/feebas.png"  alt="feebas">
                     </a>
                     <div class="contact-email">
                         <a href="mailto:d6moon@uwaterloo.ca">d6moon@uwaterloo.ca</a>
@@ -18,7 +18,7 @@
             </Transition>
             <Transition name="side-nav">
                 <ul v-show="toggle" class="dropdown-nav">
-                    <img src="./assets/images/feebas.png" alt="feebas">
+                    <img src="../assets/images/feebas.png" alt="feebas">
                     <li><a class="link" href="#home">Main</a></li>
                     <li><a class="link" href="#about">About Me</a></li>
                     <!-- <li><a class="link" href="#about">Specializations</a></li> -->
@@ -41,18 +41,18 @@
     <h1>
         <a name="projects"><Projects></Projects></a>
     </h1>
-    <h1>
+    <!-- <h1>
         <a name="contact"><Contact></Contact></a>
-    </h1>
+    </h1> -->
 </template>
 
 <script>
 
-import Title from './components/Title.vue'
-import About from './components/About.vue'
-import Specialties from './components/Specialties.vue'
-import Projects from './components/Projects.vue'
-import Contact from './components/Contact.vue'
+import Title from './Title.vue'
+import About from './About.vue'
+import Specialties from './Specialties.vue'
+import Projects from './Projects.vue'
+// import Contact from './Contact.vue'
 
 import gsap from 'gsap'
 
@@ -88,7 +88,7 @@ export default {
         About,
         Specialties,
         Projects,
-        Contact,
+        // Contact,
     },
     created() {
         window.addEventListener('resize', this.checkMobile)
