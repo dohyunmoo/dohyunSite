@@ -5,9 +5,11 @@
             <div class="about-texts">
                 <p>I'm an inspired developer fully charged with creativity.</p>
                 <p>Ever since I learned about programming in the first semester of my undergraduate degree, I was fascinated with what it can achieve!
-                    My never-ending desire to learn innovative technologies
+                    My never-ending desire to learn innovative technologies motivate and challenge me to relentlessly improve my programming and problem-solving skills.
                 </p>
-                <p>hehehehehehe</p>
+                <p>With the help of my studies in Computer Engineering program at the University of Waterloo, I was able to become the proud developer I am today, and 
+                    with endless practices, I wish to be even more skillful in the future.
+                </p>
             </div>
         </div>
         <div class="skills">
