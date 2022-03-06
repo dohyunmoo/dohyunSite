@@ -10,7 +10,7 @@
                             <h4>{{ a.title }}</h4>
                             <p>{{ a.description }}</p>
                         </a>
-                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/mainsite/src/assets/resume.pdf" target="_blank">
+                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/src/assets/resume.pdf" target="_blank">
                             <div :class="classArray[i]"></div>
                             <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
                             <p>{{ a.description }}</p>
@@ -27,7 +27,7 @@
                             <h4>{{ a.title }}</h4>
                             <p>{{ a.description }}</p>
                         </a>
-                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/mainsite/src/assets/resume.pdf" target="_blank">
+                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/src/assets/resume.pdf" target="_blank">
                             <div :class="classArray[i]"></div>
                             <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
                             <p>{{ a.description }}</p>
@@ -46,7 +46,7 @@
                             <h4>{{ a.title }}</h4>
                             <p>{{ a.description }}</p>
                         </a>
-                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/mainsite/src/assets/resume.pdf" target="_blank">
+                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/src/assets/resume.pdf" target="_blank">
                             <div :class="classArray[i]"></div>
                             <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
                             <p>{{ a.description }}</p>
@@ -62,7 +62,7 @@
                             <h4>{{ a.title }}</h4>
                             <p>{{ a.description }}</p>
                         </a>
-                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/mainsite/src/assets/resume.pdf" target="_blank">
+                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/src/assets/resume.pdf" target="_blank">
                             <div :class="classArray[i]"></div>
                             <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
                             <p>{{ a.description }}</p>
@@ -79,7 +79,7 @@
                             <h4>{{ a.title }}</h4>
                             <p>{{ a.description }}</p>
                         </a>
-                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/mainsite/src/assets/resume.pdf" target="_blank">
+                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/src/assets/resume.pdf" target="_blank">
                             <div :class="classArray[i]"></div>
                             <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
                             <p>{{ a.description }}</p>
@@ -95,7 +95,7 @@
                             <h4>{{ a.title }}</h4>
                             <p>{{ a.description }}</p>
                         </a>
-                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/mainsite/src/assets/resume.pdf" target="_blank">
+                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/src/assets/resume.pdf" target="_blank">
                             <div :class="classArray[i]"></div>
                             <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
                             <p>{{ a.description }}</p>

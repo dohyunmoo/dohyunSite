@@ -9,7 +9,7 @@
             </div>
             <div class="title-links">
                 <div class="major-title-links">
-                    <a href="https://github.com/dohyunmoo/dohyunSite/blob/main/mainsite/src/assets/resume.pdf" target="_blank">Resume</a>
+                    <a href="https://github.com/dohyunmoo/dohyunSite/blob/main/src/assets/resume.pdf" target="_blank">Resume</a>
                 </div>
                 <div class="minor-title-links">
                     <a href="https://github.com/dohyunmoo" target="_blank">Github</a>
