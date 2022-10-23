@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        <img src="../assets/images/feebas.png" alt="feebas">
+        <img id='main-picture' src="../assets/images/me.png" alt="feebas">
     </div>
 </template>
 
@@ -127,6 +127,12 @@ export default {
 
 .major-title-links a {
     font-size: 36px;
+}
+
+#main-picture {
+    /* width: 40%;
+    height: 60%; */
+    padding-left: 100px;
 }
 
 @media (max-width: 500px) {
