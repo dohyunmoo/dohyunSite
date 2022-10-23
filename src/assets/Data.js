@@ -34,7 +34,7 @@ export default [
     {
         id : 5,
         title: "Network Operations Developer",
-        description: "January 2022 ~ Present",
+        description: "January 2022 ~ April 2022",
         link: '',
         relation: "Rogers Communications",
         image: ''

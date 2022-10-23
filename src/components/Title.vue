@@ -45,7 +45,7 @@ export default {
     data() {
         return {
             index: 0,
-            titles: ['Software Developer', 'Frontend Developer', 'Motivated', 'Innovator', 'Critical Thinker', 'UFC Mania', 'Riot Games Fan'],
+            titles: ['Software Developer', 'Motivated', 'Innovator', 'Critical Thinker', 'UFC Fan', 'Riot Games Lover', 'Platinum Jungler :)'],
             show: true,
             mobile: false,
             windowWidth: null
