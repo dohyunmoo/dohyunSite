@@ -24,6 +24,7 @@
                     <!-- <li><a class="link" href="#about">Specializations</a></li> -->
                     <li><a class="link" href="#specs">Specialties</a></li>
                     <li><a class="link" href="#projects">Projects</a></li>
+                    <li><a class="link" href="#experiences">Experiences</a></li>
                     <li><a class="link" href="#contact">Contact Me</a></li>
                 </ul>
             </Transition>
@@ -35,11 +36,14 @@
     <h1>
         <a name="about"><About></About></a>
     </h1>
-    <h1>
+    <!-- <h1>
         <a name="specs"><Specialties></Specialties></a>
-    </h1>
+    </h1> -->
     <h1>
         <a name="projects"><Projects></Projects></a>
+    </h1>
+    <h1>
+        <a name="Experiences"><Experiences></Experiences></a>
     </h1>
     <!-- <h1>
         <a name="contact"><Contact></Contact></a>
@@ -50,9 +54,9 @@
 
 import Title from './Title.vue'
 import About from './About.vue'
-import Specialties from './Specialties.vue'
+// import Specialties from './Specialties.vue'
 import Projects from './Projects.vue'
-// import Contact from './Contact.vue'
+import Experiences from './Experiences.vue'
 
 import gsap from 'gsap'
 
@@ -86,8 +90,9 @@ export default {
     components: {
         Title,
         About,
-        Specialties,
+        // Specialties,
         Projects,
+        Experiences,
         // Contact,
     },
     created() {

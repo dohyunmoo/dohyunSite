@@ -1,59 +1,57 @@
 <template>
-    <div>
-        <div v-show="!mobile" class="main">
-            <div class="title">My Work</div>
-            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="project-row">
-                <div v-for="(a,i) in Data" :key="i" :data-index="i">
-                    <div class="project" v-if="i <= 3">
-                        <a v-if="a.link != ''" :href="a.link">
-                            <div :class="classArray[i]"></div>
-                            <h4>{{ a.title }}</h4>
-                            <p>{{ a.description }}</p>
-                        </a>
-                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/src/assets/resume.pdf" target="_blank">
-                            <div :class="classArray[i]"></div>
-                            <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
-                            <p>{{ a.description }}</p>
-                        </a>
-                    </div>
+    <div v-show="!mobile" class="main">
+        <div class="title">Experiences</div>
+        <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enter" class="project-row">
+            <div v-for="(a,i) in Data" :key="i" :data-index="i" target="_blank">
+                <div class="project" v-if="i > 3">
+                    <a v-if="a.link != ''" :href="a.link">
+                        <div :class="classArray[i]"></div>
+                        <h4>{{ a.title }}</h4>
+                        <p>{{ a.description }}</p>
+                    </a>
+                    <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/src/assets/resume.pdf" target="_blank">
+                        <div :class="classArray[i]"></div>
+                        <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
+                        <p>{{ a.description }}</p>
+                    </a>
                 </div>
-            </transition-group>
-        </div>
-        <div v-show="mobile" class="main">
-            <div class="title">My Work</div>
-            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enterMobile" class="project-row">
-                <div v-for="(a,i) in Data" :key="i" :data-index="i">
-                    <div class="project" v-if="i <= 1">
-                        <a v-if="a.link != ''" :href="a.link">
-                            <div :class="classArray[i]"></div>
-                            <h4>{{ a.title }}</h4>
-                            <p>{{ a.description }}</p>
-                        </a>
-                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/src/assets/resume.pdf" target="_blank">
-                            <div :class="classArray[i]"></div>
-                            <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
-                            <p>{{ a.description }}</p>
-                        </a>
-                    </div>
+            </div>
+        </transition-group>     
+    </div>
+    <div v-show="mobile" class="main">
+        <div class="title">Experiences</div>
+        <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enterMobile" class="project-row">
+            <div v-for="(a,i) in Data" :key="i" :data-index="i" target="_blank">
+                <div class="project" v-if="i > 3 && i <= 5">
+                    <a v-if="a.link != ''" :href="a.link">
+                        <div :class="classArray[i]"></div>
+                        <h4>{{ a.title }}</h4>
+                        <p>{{ a.description }}</p>
+                    </a>
+                    <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/src/assets/resume.pdf" target="_blank">
+                        <div :class="classArray[i]"></div>
+                        <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
+                        <p>{{ a.description }}</p>
+                    </a>
                 </div>
-            </transition-group>
-            <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enterMobile" class="project-row">
-                <div v-for="(a,i) in Data" :key="i" :data-index="i">
-                    <div class="project" v-if="i > 1 && i <= 3">
-                        <a v-if="a.link != ''" :href="a.link">
-                            <div :class="classArray[i]"></div>
-                            <h4>{{ a.title }}</h4>
-                            <p>{{ a.description }}</p>
-                        </a>
-                        <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/src/assets/resume.pdf" target="_blank">
-                            <div :class="classArray[i]"></div>
-                            <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
-                            <p>{{ a.description }}</p>
-                        </a>
-                    </div>
+            </div>
+        </transition-group>
+        <transition-group appear tag="div" @before-enter="beforeEnter" @enter="enterMobile" class="project-row">
+            <div v-for="(a,i) in Data" :key="i" :data-index="i" target="_blank">
+                <div class="project" v-if="i > 5">
+                    <a v-if="a.link != ''" :href="a.link">
+                        <div :class="classArray[i]"></div>
+                        <h4>{{ a.title }}</h4>
+                        <p>{{ a.description }}</p>
+                    </a>
+                    <a v-else href="https://github.com/dohyunmoo/dohyunSite/blob/main/src/assets/resume.pdf" target="_blank">
+                        <div :class="classArray[i]"></div>
+                        <h4>{{ a.title }} <br> <span>{{ a.relation }}</span></h4>
+                        <p>{{ a.description }}</p>
+                    </a>
                 </div>
-            </transition-group>
-        </div>
+            </div>
+        </transition-group>
     </div>
 </template>
 
@@ -104,7 +102,7 @@ export default {
     data() {
         return {
             Data,
-            classArray: ['rain', 'pokemon', 'league', 'website'],
+            classArray: ['rogers', 'imagine', 'method', 'titus'],
             mobile: false,
             windowWidth: null
         }
@@ -208,7 +206,7 @@ export default {
     font-weight: bolder;
 }
 
-.rain, .pokemon, .league, .website {
+.rain, .pokemon, .league, .website, .rogers, .imagine, .method, .titus{
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -219,20 +217,20 @@ export default {
     opacity: 0.25;
 }
 
-.rain {
-    background-image: url(../assets/images/rain-project.png);
+.rogers {
+    background-image: url(../assets/images/Rogers-Emblem.png);
 }
 
-.pokemon {
+.imagine {
+    background-image: url(../assets/images/Imagine-logo.jpg);
+}
+
+.method {
+    background-image: url(../assets/images/method-logo.jpg);
+}
+
+.titus {
     background-image: url(../assets/images/feebas.png);
-}
-
-.league {
-    background-image: url(../assets/images/LoL-icon.png);
-}
-
-.website {
-    background-image: url(../assets/images/vue-logo.png);
 }
 
 @media (max-width: 500px) {

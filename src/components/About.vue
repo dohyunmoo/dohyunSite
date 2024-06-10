@@ -2,28 +2,21 @@
     <div class="main">
         <div class="about">
             <h4>About Me</h4>
-            <div class="about-texts">
-                <p>I'm an inspired developer fully charged with creativity.</p>
-                <p>Ever since I learned about programming in the first semester of my undergraduate degree, I was fascinated with what it can achieve!
-                    My never-ending desire to learn innovative technologies motivate and challenge me to relentlessly improve my programming and problem-solving skills.
-                </p>
-                <p>With the help of my studies in Computer Engineering program at the University of Waterloo, I was able to become the proud developer I am today, and 
-                    with endless practices, I wish to be even more skillful in the future.
-                </p>
-            </div>
+            <ul class="about-texts">
+                <li>University of Waterloo B.A.Sc Computer Engineering 2024</li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
         <div class="skills">
             <div class="content">
-                <h4>Programming Languages</h4>
-                <p>C, C++, C#, Python, HTML, CSS, Javascript, Terraform, Ansible, Powershell</p>
+                <h6>Main Programming Languages</h6>
+                <p>Python. C/C++, HTML, CSS, Javascript, Java</p>
             </div>
             <div class="content">
-                <h4>Frameworks and Libraries</h4>
-                <p>VueJS, NodeJS, Selenium, Robot Framework, Pester</p>
-            </div>
-            <div class="content">
-                <h4>Others</h4>
-                <p>Git, Linux/Windows CLI, Azure, vSphere, Jenkins, Docker</p>
+                <h6>Tech Stack</h6>
+                <p>Git, Linux CLI, Jenkins, Docker</p>
             </div>
         </div>
     </div>
@@ -61,113 +54,4 @@ export default {
 }
 </script>
 
-<style scoped>
-
-.exm {
-    visibility: hidden;
-}
-
-.neg {
-    visibility: visible;
-}
-
-.main {
-    /* color: #2c3e50; */
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-
-.about {
-    padding-top: 5vh;
-    width: 40%;
-    vertical-align: middle;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.about h4 {
-    font-size: 64px;
-    padding: 20px;
-    font-weight: bolder;
-}
-
-.about-texts {
-    text-align: left;
-    font-size: 24px;
-    padding: 0 40px;
-}
-
-.skills {
-    color: #2c3e50;
-    background-color: #fcae1e;
-    padding: 20px;
-    width: 60%;
-    overflow: scroll;
-}
-
-.skills::-webkit-scrollbar {
-    display: none;
-}
-
-.content {
-    padding: 40px;
-}
-
-.content p {
-    font-size: 32px;
-    text-align: left;
-}
-
-.content h4 {
-    font-size: 56px;
-    padding: 10px;
-}
-
-@media (max-width: 500px) {
-    .main {
-        display: flex;
-        flex-direction: column;
-        height: 150vh;
-        align-items: center;
-        justify-content: center;
-        text-align: left;
-    }
-
-    .about {
-        width: 100vw;
-        height: 50vh;
-        margin: 0;
-    }
-
-    .about h4 {
-        font-size: 48px;
-        text-align: center;
-    }
-
-    .about p {
-        font-size: 20px;
-    }
-
-    .skills {
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-    }
-
-    .skills h4 {
-        font-size: 48px;
-        padding: 0;
-        padding-bottom: 15px;
-    }
-
-    .skills p {
-        font-size: 24px;
-    }
-}
-</style>
+<style scoped src="../assets/css/about.css"></style>
